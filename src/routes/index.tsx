@@ -1,5 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import profile from "@/assets/profile.png";
+import sokoposImg from "@/assets/sokopos.png";
+import procurbosseImg from "@/assets/procurbosse.png";
+import aeroopsImg from "@/assets/aeroops.png";
 import { ArrowUpRight, Mail, Phone, MapPin, Github, Linkedin, Shield, Network, Monitor, Printer, Server, Eye } from "lucide-react";
 
 export const Route = createFileRoute("/")({
@@ -22,25 +25,28 @@ export const Route = createFileRoute("/")({
 
 const projects = [
   {
-    name: "SokoPos",
+    name: "SokoMtaani",
     url: "https://sokopos.edgeone.app",
-    tagline: "Point-of-sale system for African retailers",
-    blurb: "A streamlined POS that handles inventory, sales tracking, and receipts — built for small shops and informal traders who need reliability over complexity.",
-    stack: ["React", "Tailwind", "EdgeOne"],
+    tagline: "Smart POS for modern Kenyan businesses",
+    blurb: "A point-of-sale platform built for African retailers. Manage sales, inventory, and payments with M-Pesa integration, stock tracking, and analytics — simple enough for any shop, powerful enough to grow with the business.",
+    stack: ["React", "Tailwind", "M-Pesa"],
+    image: sokoposImg,
   },
   {
-    name: "ProcurBosse",
+    name: "EL5 MediProcure",
     url: "https://procurbosse.edgeone.app",
-    tagline: "Procurement & vendor management",
-    blurb: "Helps procurement officers track requisitions, suppliers, and approvals in one place. Designed around the messy reality of small-org purchasing.",
-    stack: ["React", "TypeScript", "EdgeOne"],
+    tagline: "Health procurement system — Embu Level 5",
+    blurb: "A secure procurement and vendor management platform designed for hospital operations. Tracks requisitions, suppliers, and approvals with role-based access — built around the realities of clinical purchasing.",
+    stack: ["React", "TypeScript", "PWA"],
+    image: procurbosseImg,
   },
   {
-    name: "AeroOps",
+    name: "AeroOps Nexus",
     url: "https://aeroops.edgeone.app",
-    tagline: "Operations dashboard for aviation teams",
-    blurb: "A clean operations interface for tracking flights, crew, and maintenance schedules. Built to make complex logistics feel calm.",
-    stack: ["React", "Tailwind", "EdgeOne"],
+    tagline: "Enterprise ground operations dashboard",
+    blurb: "A clean operations interface for aviation ground teams — tracking flights, crew, and maintenance schedules. Built to make complex logistics feel calm and controllable.",
+    stack: ["React", "Tailwind", "Dashboard"],
+    image: aeroopsImg,
   },
 ];
 
