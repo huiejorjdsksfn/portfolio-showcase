@@ -103,11 +103,12 @@ function Index() {
             </div>
           </div>
           <div className="relative">
-            <div className="absolute -inset-8 bg-primary/10 blur-3xl rounded-full" />
-            <div className="relative aspect-[3/4] rounded-3xl overflow-hidden bg-gradient-to-br from-secondary to-accent/30" style={{ boxShadow: "var(--shadow-glow)" }}>
-              <img src={profile} alt="Isaac Njoroge" className="w-full h-full object-cover object-top" />
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-accent/20 to-secondary blur-3xl rounded-full" />
+            <div className="relative aspect-[3/4] rounded-3xl overflow-hidden" style={{ background: "radial-gradient(at 30% 20%, oklch(0.32 0.08 290), oklch(0.18 0.04 280) 70%)", boxShadow: "var(--shadow-glow)" }}>
+              <img src={profile} alt="Isaac Njoroge" className="absolute inset-0 w-full h-full object-contain object-bottom" />
             </div>
           </div>
+
         </div>
       </section>
 
@@ -122,35 +123,38 @@ function Index() {
             <p className="text-sm text-muted-foreground max-w-xs hidden md:block">Three shipped products solving real operational problems.</p>
           </div>
 
-          <div className="grid gap-6 md:gap-8">
+          <div className="grid gap-8">
             {projects.map((p, i) => (
               <a
                 key={p.name}
                 href={p.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative grid md:grid-cols-12 gap-6 p-8 md:p-10 rounded-2xl bg-card border border-border hover:border-primary/50 transition-all duration-300"
+                className={`group relative grid md:grid-cols-2 gap-0 rounded-2xl bg-card border border-border hover:border-primary/50 transition-all duration-300 overflow-hidden ${i % 2 === 1 ? "md:[&>*:first-child]:order-2" : ""}`}
                 style={{ boxShadow: "var(--shadow-card)" }}
               >
-                <div className="md:col-span-1 text-sm text-muted-foreground font-mono">0{i + 1}</div>
-                <div className="md:col-span-7">
+                <div className="relative aspect-[4/3] md:aspect-auto overflow-hidden bg-secondary">
+                  <img src={p.image} alt={`${p.name} screenshot`} className="absolute inset-0 w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-card/40 to-transparent" />
+                </div>
+                <div className="p-8 md:p-10 flex flex-col justify-center">
+                  <div className="text-sm text-muted-foreground font-mono mb-3">0{i + 1} — Live</div>
                   <h3 className="font-display text-3xl md:text-4xl mb-2 group-hover:text-primary transition-colors">{p.name}</h3>
                   <p className="text-muted-foreground italic mb-4">{p.tagline}</p>
-                  <p className="leading-relaxed">{p.blurb}</p>
-                </div>
-                <div className="md:col-span-4 flex flex-col justify-between md:items-end gap-4">
-                  <div className="flex flex-wrap gap-2 md:justify-end">
+                  <p className="leading-relaxed mb-6">{p.blurb}</p>
+                  <div className="flex flex-wrap gap-2 mb-6">
                     {p.stack.map((s) => (
                       <span key={s} className="text-xs px-3 py-1 rounded-full bg-secondary text-secondary-foreground">{s}</span>
                     ))}
                   </div>
-                  <div className="inline-flex items-center gap-2 text-sm text-primary">
+                  <div className="inline-flex items-center gap-2 text-sm text-primary font-medium">
                     Visit live site <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                   </div>
                 </div>
               </a>
             ))}
           </div>
+
         </div>
       </section>
 
