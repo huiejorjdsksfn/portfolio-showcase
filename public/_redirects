@@ -1,0 +1,3 @@
+# EdgeOne Pages SPA routing
+# All routes are handled by the React app — rewrite everything to index.html
+/*    /index.html    200
