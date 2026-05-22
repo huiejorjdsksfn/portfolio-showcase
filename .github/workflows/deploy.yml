@@ -18,6 +18,8 @@ jobs:
   build:
     name: Build static site
     runs-on: ubuntu-latest
+    outputs:
+      dist_path: dist/client
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -33,31 +35,42 @@ jobs:
 
       - name: Build
         run: npm run build
-        # Produces dist/client/ — a fully self-contained static site:
-        #   index.html   (pre-rendered, all images base64-inlined, 0 external JS deps)
-        #   404.html     (dark-themed, zero JS)
-        #   _redirects   (EdgeOne Pages SPA rewrite rule)
-        #   _headers     (cache-control rules)
-        #   assets/      (hashed CSS + JS for React hydration, optimised PNGs)
 
       - name: Verify output
         run: |
-          echo "=== dist/client contents ==="
+          echo "=== dist/client ==="
           ls -lh dist/client/
           echo "=== index.html size ==="
           wc -c dist/client/index.html
-          echo "=== embedded images ==="
-          grep -c "data:image/png;base64" dist/client/index.html && echo "image(s) embedded OK"
+          echo "=== embedded images check ==="
+          COUNT=$(grep -c "data:image/png;base64" dist/client/index.html)
+          echo "$COUNT image(s) embedded"
+          [ "$COUNT" -eq "4" ] && echo "✓ All 4 images OK" || echo "⚠ Expected 4, got $COUNT"
 
-      - name: Setup Pages
+      # ── GitHub Pages ──────────────────────────────────────
+      - name: Setup GitHub Pages
         uses: actions/configure-pages@v5
 
-      - name: Upload Pages artifact
+      - name: Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: dist/client
 
-  deploy:
+      # ── EdgeOne Pages (direct upload) ─────────────────────
+      - name: Deploy to EdgeOne Pages
+        if: ${{ env.EDGEONE_TOKEN != '' }}
+        env:
+          EDGEONE_TOKEN: ${{ secrets.EDGEONE_TOKEN }}
+        run: |
+          npm install -g edgeone
+          edgeone pages deploy dist/client \
+            --name portfolio-showcase \
+            --token "$EDGEONE_TOKEN" \
+            --env production \
+            --area global
+        continue-on-error: true
+
+  deploy-gh-pages:
     name: Deploy to GitHub Pages
     needs: build
     runs-on: ubuntu-latest
