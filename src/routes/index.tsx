@@ -3,7 +3,7 @@ import profile from "@/assets/profile.png";
 import sokoposImg from "@/assets/sokopos.png";
 import procurbosseImg from "@/assets/procurbosse.png";
 import aeroopsImg from "@/assets/aeroops.png";
-import { ArrowUpRight, Mail, Phone, MapPin, Github, Linkedin, Shield, Network, Monitor, Printer, Server, Eye, Download } from "lucide-react";
+import { ArrowUpRight, Mail, Phone, MapPin, Github, Linkedin, Shield, Network, Monitor, Printer, Server, Eye, Download, FileText } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   component: Index,
