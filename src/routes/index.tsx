@@ -73,7 +73,10 @@ function Index() {
             <a href="#contact" className="hover:text-foreground transition">Contact</a>
           </div>
           <div className="flex items-center gap-2">
-            <a href="/Isaac-Njoroge-CV.docx" download className="hidden sm:inline-flex text-sm px-3 py-2 rounded-full border border-border hover:bg-secondary transition font-medium">
+            <a href="/Isaac-Njoroge-CV.pdf" target="_blank" rel="noopener noreferrer" className="hidden sm:inline-flex items-center gap-1 text-sm px-3 py-2 rounded-full border border-border hover:bg-secondary transition font-medium">
+              <FileText className="w-3.5 h-3.5" /> View CV
+            </a>
+            <a href="/Isaac-Njoroge-CV.docx" download className="hidden md:inline-flex text-sm px-3 py-2 rounded-full border border-border hover:bg-secondary transition font-medium">
               ↓ CV
             </a>
             <a href="#contact" className="text-sm px-4 py-2 rounded-full bg-primary text-primary-foreground font-medium hover:opacity-90 transition">
