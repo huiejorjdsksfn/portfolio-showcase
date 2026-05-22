@@ -3,7 +3,7 @@ import profile from "@/assets/profile.png";
 import sokoposImg from "@/assets/sokopos.png";
 import procurbosseImg from "@/assets/procurbosse.png";
 import aeroopsImg from "@/assets/aeroops.png";
-import { ArrowUpRight, Mail, Phone, MapPin, Github, Linkedin, Shield, Network, Monitor, Printer, Server, Eye } from "lucide-react";
+import { ArrowUpRight, Mail, Phone, MapPin, Github, Linkedin, Shield, Network, Monitor, Printer, Server, Eye, Download } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -72,9 +72,14 @@ function Index() {
             <a href="#skills" className="hover:text-foreground transition">Skills</a>
             <a href="#contact" className="hover:text-foreground transition">Contact</a>
           </div>
-          <a href="#contact" className="text-sm px-4 py-2 rounded-full bg-primary text-primary-foreground font-medium hover:opacity-90 transition">
-            Get in touch
-          </a>
+          <div className="flex items-center gap-2">
+            <a href="/Isaac-Njoroge-CV.docx" download className="hidden sm:inline-flex text-sm px-3 py-2 rounded-full border border-border hover:bg-secondary transition font-medium">
+              ↓ CV
+            </a>
+            <a href="#contact" className="text-sm px-4 py-2 rounded-full bg-primary text-primary-foreground font-medium hover:opacity-90 transition">
+              Get in touch
+            </a>
+          </div>
         </nav>
       </header>
 
@@ -96,6 +101,9 @@ function Index() {
             <div className="flex flex-wrap gap-3">
               <a href="#work" className="px-6 py-3 rounded-full bg-primary text-primary-foreground font-medium hover:opacity-90 transition inline-flex items-center gap-2">
                 View projects <ArrowUpRight className="w-4 h-4" />
+              </a>
+              <a href="/Isaac-Njoroge-CV.docx" download className="px-6 py-3 rounded-full border border-border hover:bg-secondary transition font-medium inline-flex items-center gap-2">
+                <Download className="w-4 h-4" /> Download CV
               </a>
               <a href="mailto:Njorogeisaac069@gmail.com" className="px-6 py-3 rounded-full border border-border hover:bg-secondary transition font-medium">
                 Email me
