@@ -105,8 +105,11 @@ function Index() {
               <a href="#work" className="px-6 py-3 rounded-full bg-primary text-primary-foreground font-medium hover:opacity-90 transition inline-flex items-center gap-2">
                 View projects <ArrowUpRight className="w-4 h-4" />
               </a>
+              <a href="/Isaac-Njoroge-CV.pdf" target="_blank" rel="noopener noreferrer" className="px-6 py-3 rounded-full border border-border hover:bg-secondary transition font-medium inline-flex items-center gap-2">
+                <FileText className="w-4 h-4" /> View CV
+              </a>
               <a href="/Isaac-Njoroge-CV.docx" download className="px-6 py-3 rounded-full border border-border hover:bg-secondary transition font-medium inline-flex items-center gap-2">
-                <Download className="w-4 h-4" /> Download CV
+                <Download className="w-4 h-4" /> Download
               </a>
               <a href="mailto:Njorogeisaac069@gmail.com" className="px-6 py-3 rounded-full border border-border hover:bg-secondary transition font-medium">
                 Email me
